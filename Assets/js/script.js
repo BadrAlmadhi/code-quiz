@@ -98,7 +98,9 @@ var correct;
 //Step 2
 //WHEN I answer a question
 //THEN I am presented with another question
+starter.addEventListener("click", function(event)) {
 
+};
 //Step 3
 //WHEN I answer a question incorrectly
 //THEN time is subtracted from the clock
