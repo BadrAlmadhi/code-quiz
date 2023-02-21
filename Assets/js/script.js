@@ -5,53 +5,6 @@
 //THEN a timer starts and I am presented with a question
 
 // First we need to create element using .creatElement
-var body = document.body;
-var h1Element = document.createElement("h1");
-var quizInfo = document.createElement("p");
-var starter = document.createElement("button");
-
-var listEl = document.createElement("ol");
-var li1 = document.createElement("li");
-var li2 = document.createElement("li");
-
-li1.textContent = "Keep in mind, this Quiz has a time limit";
-li2.textContent = "Wrong answers will effect your score time";
-// Assign text
-h1Element.textContent = "Coding Quiz Challenge";
-quizInfo.textContent =
-  "Please answer the following code-related questions withing the time limit.";
-starter.textContent = "Start Quiz";
-
-// Apply changes to browser
-body.appendChild(h1Element);
-body.appendChild(quizInfo);
-body.appendChild(li1);
-body.appendChild(li2);
-body.appendChild(starter);
-
-// Styling of elements
-li1.setAttribute(
-  "style",
-  "font-family: Sans-serif;  list-style-type: none; margin: 10px;"
-);
-
-li2.setAttribute(
-  "style",
-  "font-family: Sans-serif;  list-style-type: none; margin: 10px;"
-);
-
-h1Element.setAttribute(
-  "style",
-  "text-align: center; margin: auto; padding-top: 10%; font-family: Sans-serif;"
-);
-quizInfo.setAttribute(
-  "style",
-  "text-align: center; padding-bottom: 20px; font-family: Sans-serif;"
-);
-starter.setAttribute(
-  "style",
-  "background: #8a2be2; font-size:20px; color: white; border-radius: 10px; border: none; font-family: Sans-serif; margin-top: 20px;"
-);
 
 // Questions list
 var quizQuestions = [
@@ -88,19 +41,10 @@ var quizQuestions = [
   },
 ];
 
-var questionIndex = quizQuestions.length;
-var currentQuestionIndex = 0;
-var timeLeft = 76;
-var timerInterval;
-var score = 0;
-var correct;
-
 //Step 2
 //WHEN I answer a question
 //THEN I am presented with another question
-starter.addEventListener("click", function(event)) {
 
-};
 //Step 3
 //WHEN I answer a question incorrectly
 //THEN time is subtracted from the clock

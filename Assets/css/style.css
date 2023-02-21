@@ -1,3 +1,101 @@
-body{
-    text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Positioning the start quiz button*/
+/*I added box to make them lined up in the middel*/
+.start_btn,
+.info_box,
+.quiz {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* adding style to start button*/
+
+.start_btn button {
+  font-size: 30px;
+  font-weight: 500;
+  background-color: rgb(121, 84, 158);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+.info_box {
+  display: none;
+}
+
+.info_box .info_title {
+  height: 60px;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.info_box .rule {
+  padding: 15px 35px;
+  text-align: center;
+}
+
+.info_box .buttons {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid black;
+}
+
+.info_box .buttons button {
+  margin: 0 5px;
+  height: 40px;
+  width: 100px;
+  background-color: rgb(121, 84, 158);
+  border-radius: 10px;
+  color: white;
+  font-weight: 500px;
+  cursor: pointer;
+  border-style: none;
+}
+
+.info_box .buttons button:hover {
+  background-color: rgb(129, 117, 136);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+.score {
+  color: white;
+  background-color: rgb(121, 84, 158);
+  padding: 5px;
+  border-radius: 10px;
+  border-style: none;
+}
+
+.quiz .que_text {
+  height: 60px;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+}
+
+.quiz-box header .timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 45px;
+  font-weight: 550;
 }

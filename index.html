@@ -4,11 +4,67 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Quiz</title>
-    <link rel="stylesheet" type="text/css" href="./Assets/css/style.css" />
+    <title>JavaScript Quiz App</title>
+    <link rel="stylesheet" href="Assets/css/style.css" />
   </head>
-
   <body>
-    <script src="./Assets/js/script.js"></script>
+    <!--start button-->
+    <div class="start_btn"><button>Start Quiz</button></div>
+
+    <!--Info Box-->
+    <div class="info_box">
+      <div class="info_title">
+        <h1>Coding Quiz Challenge</h1>
+      </div>
+      <div class="rule">
+        Try to answer the following code-related question. You have 76s to
+        complete the quiz. Keep in mind wrong answers will effect your score
+        time.
+      </div>
+      <div class="buttons">
+        <button class="quit">Exit</button>
+        <button class="restart">Continue</button>
+      </div>
+    </div>
+
+    <!--Quiz Timer and Score-->
+    <div class="quiz-box">
+      <header class="header">
+        <div>
+          <button class="score">View Heigh Score</button>
+        </div>
+        <div class="timer">
+          <div class="time_text"><p>Time Left</p></div>
+          <div class="time_sec">75</div>
+        </div>
+      </header>
+
+      <div class="quiz">
+        <section>
+          <div class="que_text">
+            <span>What dose HTML stand for?</span>
+          </div>
+          <div class="option_list">
+            <div class="options">
+              <span>Hypertext Markup Language</span>
+              <div class="icon"><i class="fas fa-check">Correct</i></div>
+            </div>
+            <div class="options">
+              <span>Cascading Style Sheets</span>
+              <div class="icon cross"><i class="fas fa-times">Wrong</i></div>
+            </div>
+            <div class="options">
+              <span>Structured Query Language</span>
+            </div>
+            <div class="options">
+              <span>None of the above</span>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <button class="next_btn">Next Question</button>
+        </footer>
+      </div>
+    </div>
   </body>
 </html>
