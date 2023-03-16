@@ -1,58 +1,98 @@
-//GIVEN I am taking a code quiz
+// select everything we need from index.html
+var startQuizBtn = document.querySelector("#start");
+var timerEl = document.querySelector(".time");
+var quizFirstPage = document.querySelector("#quiz-starter");
+var quizQuestions = document.querySelector("#quiz-questions");
+var mainQuestion = document.querySelector("#question");
+var choices = document.querySelector("#choices");
+var choiceA = document.querySelector("#answerChoiceA");
+var choiceB = document.querySelector("#answerChoiceB");
+var choiceC = document.querySelector("#answerChoiceC");
+var choiceD = document.querySelector("#answerChoiceD");
+var final = document.querySelector("#final-page");
+var score = document.querySelector(".heigh-score");
 
-//Step 1
-//WHEN I the start button
-//THEN a timer starts and I am presented with a question
+// The questions list
 
-// First we need to create element using .creatElement
-
-// Questions list
-var quizQuestions = [
+var questionsList = [
   {
-    question: "Inside which HTML element do we put the JavaScript?",
-    choiceA: "<js>",
-    choiceB: "<scripting>",
-    choiceC: "javascript>",
-    choiceD: "<script>",
-    correctAnswer: "d",
+    questions: "Inside which HTML element do we put the JavaScript?",
+    choices: ["A.<javascript>", "B.<scripting>", "C.<js>", "D.<script>"],
+    correctAnswer: "<script>",
   },
   {
-    question: "What dose && stand for?",
-    choiceA: "Is it to add more element",
-    choiceB: "Is it used as and ",
-    choiceC: "Is it a logical conjunction operator",
-    choiceD: "Is it division tool",
-    correctAnswer: "c",
+    questions: "Where is the correct place to insert a JavaScript?",
+    choices: ["A.Both <head> and <body>", "B.<head>", "C.<script>", "D.<h1>"],
+    correctAnswer: "Both <head> and <body",
   },
   {
-    question: "Where is the correct place to insert a JavaScript?",
-    choiceA: "The <head> section",
-    choiceB: "The <body> section",
-    choiceC: "both the <head> section and the <body> section",
-    correctAnswer: "c",
+    questions: "How to make sure that JavaScript in connected with index.html?",
+    choices: [
+      "A.test with console.log",
+      "B.type anything in JavaScript",
+      "C.assign variable",
+      "D.write a function",
+    ],
+    correctAnswer: "test with console.log",
   },
   {
-    question: "What dose HTML stand for?",
-    choiceA: "Hypertext Markup Language",
-    choiceB: "Cascading Style Sheets",
-    choiceC: "Structured Query Language",
-    choiceD: "None of the above",
-    correctAnswer: "a",
+    questions: "How do you create a function in JavaScript?",
+    choices: [
+      "A.function:myFunction()",
+      "B.function = myFunction()",
+      "C.function myFunction",
+      "D.write a function",
+    ],
+    correctAnswer: "function myFunction",
+  },
+  {
+    questions: "How do you call a function named 'myFunction'?",
+    choices: [
+      "A.call myFunction",
+      "B.function = myFunction()",
+      "C.myFunction()",
+      "D.call function myFunction",
+    ],
+    correctAnswer: "myFunction()",
   },
 ];
 
-//Step 2
-//WHEN I answer a question
-//THEN I am presented with another question
+// Add a timer of the quiz
+// Timer
 
-//Step 3
-//WHEN I answer a question incorrectly
-//THEN time is subtracted from the clock
+// Assign timer variables
+// Set time at 75
+var time = 75;
+var timerT = true;
+var timerF = false;
 
-//Step 4
-//WHEN all questions are answered or the timer reaches 0
-//THEN the game is over
+startQuizBtn.addEventListener("click", function () {
+  var countdownInterval = setInterval(setCountdownTimer, 1000);
+  // timer function
+  function setCountdownTimer() {
+    if (timerT) time--;
+    if (time <= 0) {
+      end_quiz();
+      time = 0;
+    }
+    document.getElementById("time").innerHTML = time;
+  }
+  return;
+});
 
-//Step 5
-//WHEN the game is over
-//THEN I can save my initials and my score
+// After clicking start Quiz it display the quiz questions, time, and view score.
+startQuizBtn.addEventListener("click", function () {
+  quizQuestions.style.display = "block";
+  quizFirstPage.style.display = "none";
+  timerEl.style.display = "block";
+  score.style.display = "block";
+  setCountdownTimer();
+  setQuizQuestions();
+  // Create a functions for the quiz questions to display after start quiz button is clicked.
+});
+
+// Questions
+
+function setQuizQuestions() {
+  questionsList.questions;
+}

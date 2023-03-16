@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript Quiz App</title>
-    <link rel="stylesheet" href="Assets/css/style.css" />
-  </head>
-  <body>
-    <!--start button-->
-    <div class="start_btn"><button>Start Quiz</button></div>
 
-    <!--Info Box-->
-    <div class="info_box">
-      <div class="info_title">
-        <h1>Coding Quiz Challenge</h1>
-      </div>
-      <div class="rule">
-        Try to answer the following code-related question. You have 76s to
-        complete the quiz. Keep in mind wrong answers will effect your score
-        time.
-      </div>
-      <div class="buttons">
-        <button class="quit">Exit</button>
-        <button class="restart">Continue</button>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Quiz</title>
+  <link rel="stylesheet" href="/Assets/css/style.css">
+</head>
+
+<body>
+  <!--This code is for the score-->
+  <header class="head">
+    <div class="heigh-score" style="display: none"><a href="score.html">View Heigh-Score</a></div>
+
+    <!-- Time -->
+    <div class="time" style="display: none">Time: <span id="time">0</span></div>
+  </header>
+
+  <!--This the container where all the first page display, questions, and score page-->
+  <div class="container">
+
+    <!-- Starter Page-->
+    <div id="quiz-starter" class="starter">
+      <h1>Coding Quiz Challenge</h1>
+      <p>
+        Try to answer the following code-related questions within the time <br> limit.
+        Keep in mind that incorrect answers will effect your time score<br>by ten seconds
+      </p>
+      <p>Please click the <strong>start quiz button</strong> to begin the quiz</p>
+      <button id="start">Start Quiz</button>
     </div>
 
-    <!--Quiz Timer and Score-->
-    <div class="quiz-box">
-      <header class="header">
+    <div id="quiz-questions" style="display: none">
+      <h2 id="question"></h2>
+      <ul>
+        <div id="choices">
+          <button id="answerChoiceA"></button>
+        </div>
         <div>
-          <button class="score">View Heigh Score</button>
+          <button id="answerChoiceB"></button>
         </div>
-        <div class="timer">
-          <div class="time_text"><p>Time Left</p></div>
-          <div class="time_sec">75</div>
+        <div>
+          <button id="answerChoiceC"></button>
         </div>
-      </header>
-
-      <div class="quiz">
-        <section>
-          <div class="que_text">
-            <span>What dose HTML stand for?</span>
-          </div>
-          <div class="option_list">
-            <div class="options">
-              <span>Hypertext Markup Language</span>
-              <div class="icon"><i class="fas fa-check">Correct</i></div>
-            </div>
-            <div class="options">
-              <span>Cascading Style Sheets</span>
-              <div class="icon cross"><i class="fas fa-times">Wrong</i></div>
-            </div>
-            <div class="options">
-              <span>Structured Query Language</span>
-            </div>
-            <div class="options">
-              <span>None of the above</span>
-            </div>
-          </div>
-        </section>
-        <footer>
-          <button class="next_btn">Next Question</button>
-        </footer>
-      </div>
+        <div>
+          <button id="answerChoiceD"></button>
+        </div>
+      </ul>
     </div>
-  </body>
+  </div>
+
+  <section id="AnswerResult"></section>
+
+  <div id="final-page" style="display: none">
+    <h2>You are finished with the quiz</h2>
+    <p>Your final score is <span id="final-score"></span></p>
+    <p>
+      Please Enter your initial: <input type="text" id="initial">
+      <button id="submit">submit</button>
+    </p>
+  </div>
+  <!-- Tell Here we are good-->
+  <div id="feedback" style="display: none"></div>
+  </div>
+  <script src="/Assets/js/script.js"></script>
+</body>
+
 </html>
