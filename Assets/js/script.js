@@ -23,7 +23,7 @@ var questionsList = [
   {
     questions: "Where is the correct place to insert a JavaScript?",
     choices: ["A.Both <head> and <body>", "B.<head>", "C.<script>", "D.<h1>"],
-    correctAnswer: "Both <head> and <body",
+    correctAnswer: "Both <head> and <body>",
   },
   {
     questions: "How to make sure that JavaScript in connected with index.html?",
@@ -93,6 +93,14 @@ startQuizBtn.addEventListener("click", function () {
 
 // Questions
 
-function setQuizQuestions() {
-  questionsList.questions;
+function setQuestions() {
+  mainQuestion.textContent = questionsList[i].questions;
+  choiceA.textContent = questionsList[i].choiceA[0];
+  choiceB.textContent = questionsList[i].choiceA[1];
+  choiceC.textContent = questionsList[i].choiceA[2];
+  choiceD.textContent = questionsList[i].choiceA[3];
 }
+
+choiceA.addEventListener("click", function (event) {
+  event.stopPropagation();
+});
