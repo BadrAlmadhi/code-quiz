@@ -91,8 +91,8 @@ startQuizBtn.addEventListener("click", function () {
   // Create a functions for the quiz questions to display after start quiz button is clicked.
 });
 
-// Questions
-
+// ---------------------------------- first try Questions Display
+/*
 function setQuestions() {
   mainQuestion.textContent = questionsList[i].questions;
   choiceA.textContent = questionsList[i].choiceA[0];
@@ -103,4 +103,16 @@ function setQuestions() {
 
 choiceA.addEventListener("click", function (event) {
   event.stopPropagation();
+  correctAnswer = questionsList[i].correctAnswer;
+  console.log("correctAnswer" + correctAnswer);
 });
+
+/*function setQuizQuestions() {
+  mainQuestion.innerHTML = questionsList.questions;
+}*/
+
+// Another Try of Questions display
+function quizQuestions() {
+  var quizQuestionPage = JSON.parse(questionsList.questions[0]);
+  document.mainQuestion.innerHTML = quizQuestionPage.questions[0];
+}
