@@ -105,11 +105,11 @@ function showQuestion() {
   var questionChoices = currentQuestion.choices;
   for (var i = 0; i < questionChoices.length; i++) {
     var choiceText = questionChoices[i];
-    var h2El = document.createElement("h2");
     var divEl = document.createElement("div");
     var btnEl = document.createElement("button");
     btnEl.textContent = choiceText;
-    h2El.textContent = btnEl.addEventListener("click", function (event) {
+
+    btnEl.addEventListener("click", function (event) {
       //console.log(correctAnswer);
       //console.log(choiceText);
       //console.log(event.target.textContent);
