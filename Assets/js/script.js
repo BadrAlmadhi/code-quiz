@@ -5,10 +5,6 @@ var quizFirstPage = document.querySelector("#quiz-starter");
 var quizQuestions = document.querySelector("#quiz-questions");
 var mainQuestion = document.querySelector("#question");
 var choices = document.querySelector("#choices");
-var choiceA = document.querySelector("#answerChoiceA");
-var choiceB = document.querySelector("#answerChoiceB");
-var choiceC = document.querySelector("#answerChoiceC");
-var choiceD = document.querySelector("#answerChoiceD");
 var final = document.querySelector("#final-page");
 var score = document.querySelector(".heigh-score");
 var positiveResult = document.querySelector("#answerResult");
@@ -21,7 +17,7 @@ var questionsList = [
   {
     questions: "Inside which HTML element do we put the JavaScript?",
     choices: ["A. <javascript>", "B. <scripting>", "C. <js>", "D. <script>"],
-    correctAnswer: "<script>",
+    correctAnswer: "D. <script>",
   },
   {
     questions: "Where is the correct place to insert a JavaScript?",
@@ -31,7 +27,7 @@ var questionsList = [
       "C .<script>",
       "D .<h1>",
     ],
-    correctAnswer: "Both <head> and <body>",
+    correctAnswer: "A. Both <head> and <body>",
   },
   {
     questions: "How to make sure that JavaScript in connected with index.html?",
@@ -41,7 +37,7 @@ var questionsList = [
       "C.assign variable",
       "D.write a function",
     ],
-    correctAnswer: "test with console.log",
+    correctAnswer: "A.test with console.log",
   },
   {
     questions: "How do you create a function in JavaScript?",
@@ -51,7 +47,7 @@ var questionsList = [
       "C.function myFunction",
       "D.write a function",
     ],
-    correctAnswer: "function myFunction",
+    correctAnswer: "C.function myFunction",
   },
   {
     questions: "How do you call a function named 'myFunction'?",
@@ -61,7 +57,7 @@ var questionsList = [
       "C.myFunction()",
       "D.call function myFunction",
     ],
-    correctAnswer: "myFunction()",
+    correctAnswer: "C.myFunction()",
   },
 ];
 
@@ -74,6 +70,8 @@ var time = 75;
 var timerT = true;
 var timerF = false;
 
+// assign event listener
+// after click time start
 startQuizBtn.addEventListener("click", function () {
   var countdownInterval = setInterval(setCountdownTimer, 1000);
   // timer function
@@ -96,25 +94,60 @@ startQuizBtn.addEventListener("click", function () {
   score.style.display = "block";
   //setCountdownTimer();
   //setQuizQuestions();
-  setQuestions();
+  showQuestion();
   // Create a functions for the quiz questions to display after start quiz button is clicked.
 });
 
+function showQuestion() {
+  choices.replaceChildren();
+  var currentQuestion = questionsList[questionsIndex];
+  var correctAnswer = currentQuestion.correctAnswer;
+  var questionChoices = currentQuestion.choices;
+  for (var i = 0; i < questionChoices.length; i++) {
+    var choiceText = questionChoices[i];
+    var h2El = document.createElement("h2");
+    var divEl = document.createElement("div");
+    var btnEl = document.createElement("button");
+    btnEl.textContent = choiceText;
+    h2El.textContent = btnEl.addEventListener("click", function (event) {
+      //console.log(correctAnswer);
+      //console.log(choiceText);
+      //console.log(event.target.textContent);
+      if (correctAnswer === event.target.textContent) {
+        console.log("Correct");
+        questionsIndex++;
+        showQuestion();
+      } else {
+        console.log("Wrong");
+      }
+    });
+
+    divEl.append(btnEl);
+    choices.append(divEl);
+  }
+}
+
+// add event listener
+
 // display questions in DOM
 
-function setQuestions() {
+/*function setQuestions() {
   mainQuestion.textContent = questionsList[questionsIndex].questions;
   choiceA.textContent = questionsList[questionsIndex].choices[0];
   choiceB.textContent = questionsList[questionsIndex].choices[1];
   choiceC.textContent = questionsList[questionsIndex].choices[2];
   choiceD.textContent = questionsList[questionsIndex].choices[3];
-}
+}*/
 
-choiceA.addEventListener("click", function (event) {
+// Need to add all questions
+// when answer clicked replay correct or wrong answer
+// after quiz is done need to display score
+
+/*choiceA.addEventListener("click", function (event) {
   event.stopPropagation();
-  correctAnswer = questionsList[questionsIndex].correctAnswer;
+  correctAnswer = choiceA.correctAnswer;
   console.log("correctAnswer " + correctAnswer);
   if (correctAnswer === 0) {
     document.positiveResult.innerHTML = "Correct Answer!";
   }
-});
+});*/
