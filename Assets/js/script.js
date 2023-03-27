@@ -11,18 +11,26 @@ var choiceC = document.querySelector("#answerChoiceC");
 var choiceD = document.querySelector("#answerChoiceD");
 var final = document.querySelector("#final-page");
 var score = document.querySelector(".heigh-score");
+var positiveResult = document.querySelector("#answerResult");
+
+var questionsIndex = 0;
 
 // The questions list
 
 var questionsList = [
   {
     questions: "Inside which HTML element do we put the JavaScript?",
-    choices: ["A.<javascript>", "B.<scripting>", "C.<js>", "D.<script>"],
+    choices: ["A. <javascript>", "B. <scripting>", "C. <js>", "D. <script>"],
     correctAnswer: "<script>",
   },
   {
     questions: "Where is the correct place to insert a JavaScript?",
-    choices: ["A.Both <head> and <body>", "B.<head>", "C.<script>", "D.<h1>"],
+    choices: [
+      "A. Both <head> and <body>",
+      "B .<head>",
+      "C .<script>",
+      "D .<h1>",
+    ],
     correctAnswer: "Both <head> and <body>",
   },
   {
@@ -86,33 +94,27 @@ startQuizBtn.addEventListener("click", function () {
   quizFirstPage.style.display = "none";
   timerEl.style.display = "block";
   score.style.display = "block";
-  setCountdownTimer();
-  setQuizQuestions();
+  //setCountdownTimer();
+  //setQuizQuestions();
+  setQuestions();
   // Create a functions for the quiz questions to display after start quiz button is clicked.
 });
 
-// ---------------------------------- first try Questions Display
-/*
+// display questions in DOM
+
 function setQuestions() {
-  mainQuestion.textContent = questionsList[i].questions;
-  choiceA.textContent = questionsList[i].choiceA[0];
-  choiceB.textContent = questionsList[i].choiceA[1];
-  choiceC.textContent = questionsList[i].choiceA[2];
-  choiceD.textContent = questionsList[i].choiceA[3];
+  mainQuestion.textContent = questionsList[questionsIndex].questions;
+  choiceA.textContent = questionsList[questionsIndex].choices[0];
+  choiceB.textContent = questionsList[questionsIndex].choices[1];
+  choiceC.textContent = questionsList[questionsIndex].choices[2];
+  choiceD.textContent = questionsList[questionsIndex].choices[3];
 }
 
 choiceA.addEventListener("click", function (event) {
   event.stopPropagation();
-  correctAnswer = questionsList[i].correctAnswer;
-  console.log("correctAnswer" + correctAnswer);
+  correctAnswer = questionsList[questionsIndex].correctAnswer;
+  console.log("correctAnswer " + correctAnswer);
+  if (correctAnswer === 0) {
+    document.positiveResult.innerHTML = "Correct Answer!";
+  }
 });
-
-/*function setQuizQuestions() {
-  mainQuestion.innerHTML = questionsList.questions;
-}*/
-
-// Another Try of Questions display
-function quizQuestions() {
-  var quizQuestionPage = JSON.parse(questionsList.questions[0]);
-  document.mainQuestion.innerHTML = quizQuestionPage.questions[0];
-}
