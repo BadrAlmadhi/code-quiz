@@ -34,3 +34,8 @@ button:hover {
 .choices button {
   display: block;
 }
+
+#final-page {
+  margin: 130px auto;
+  max-width: 600px;
+}

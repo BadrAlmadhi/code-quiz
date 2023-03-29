@@ -78,6 +78,7 @@ startQuizBtn.addEventListener("click", function () {
   function setCountdownTimer() {
     if (timerT) time--;
     if (time <= 0) {
+      // do not forget to make a function for this
       end_quiz();
       time = 0;
     }
@@ -99,55 +100,45 @@ startQuizBtn.addEventListener("click", function () {
 });
 
 function showQuestion() {
-  choices.replaceChildren();
-  var currentQuestion = questionsList[questionsIndex];
-  var correctAnswer = currentQuestion.correctAnswer;
-  var questionChoices = currentQuestion.choices;
-  for (var i = 0; i < questionChoices.length; i++) {
-    var choiceText = questionChoices[i];
-    var divEl = document.createElement("div");
-    var btnEl = document.createElement("button");
-    btnEl.textContent = choiceText;
+  if (questionsIndex === questionsList.length) {
+    end_quiz();
+  } else {
+    //choices.replaceChildren();
+    choices.innerHTML = "";
+    var currentQuestion = questionsList[questionsIndex];
+    var correctAnswer = currentQuestion.correctAnswer;
+    //console.log(currentQuestion);
+    mainQuestion.innerText = currentQuestion.questions;
+    var questionChoices = currentQuestion.choices;
+    //console.log(questionChoices);
+    for (var i = 0; i < questionChoices.length; i++) {
+      var choiceText = questionChoices[i];
+      var divEl = document.createElement("div");
+      var btnEl = document.createElement("button");
+      btnEl.textContent = choiceText;
 
-    btnEl.addEventListener("click", function (event) {
-      //console.log(correctAnswer);
-      //console.log(choiceText);
-      //console.log(event.target.textContent);
-      if (correctAnswer === event.target.textContent) {
-        console.log("Correct");
+      btnEl.addEventListener("click", function (event) {
+        //console.log(correctAnswer);
+        //console.log(choiceText);
+        //console.log(event.target.textContent);
+        
+        if (correctAnswer === event.target.textContent) {
+          console.log("Correct");
+        } else {
+          console.log("Wrong");
+        }
         questionsIndex++;
+        //console.log(questionsIndex);
         showQuestion();
-      } else {
-        console.log("Wrong");
-      }
-    });
+      });
 
-    divEl.append(btnEl);
-    choices.append(divEl);
+      divEl.append(btnEl);
+      choices.append(divEl);
+    }
   }
 }
 
-// add event listener
-
-// display questions in DOM
-
-/*function setQuestions() {
-  mainQuestion.textContent = questionsList[questionsIndex].questions;
-  choiceA.textContent = questionsList[questionsIndex].choices[0];
-  choiceB.textContent = questionsList[questionsIndex].choices[1];
-  choiceC.textContent = questionsList[questionsIndex].choices[2];
-  choiceD.textContent = questionsList[questionsIndex].choices[3];
-}*/
-
-// Need to add all questions
-// when answer clicked replay correct or wrong answer
-// after quiz is done need to display score
-
-/*choiceA.addEventListener("click", function (event) {
-  event.stopPropagation();
-  correctAnswer = choiceA.correctAnswer;
-  console.log("correctAnswer " + correctAnswer);
-  if (correctAnswer === 0) {
-    document.positiveResult.innerHTML = "Correct Answer!";
-  }
-});*/
+function end_quiz() {
+  final.style.display = "block";
+  quizQuestions.style.display = "none";
+}
