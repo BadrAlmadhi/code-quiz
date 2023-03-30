@@ -2,11 +2,9 @@
 
 ## My Task
 
-At some point in my journey to become a full-stack web developer, I’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+At some point in my journey to become a full-stack web developer, I’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges.
 
-To help familiarize with these tests and allow to use the skills covered in this module, this Challenge rquired me to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that I will write. It will have a clean, polished, and responsive user interface. 
-
-
+To help familiarize with these tests and allow to use the skills covered in this module, this Challenge asked me to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that I will write. It will have a clean, polished, and responsive user interface.
 
 ## User Story
 
@@ -39,5 +37,8 @@ HTML
 CSS
 JavaScript
 
+```
 
+## Live Link
 
+https://github.com/BadrAlmadhi/code-quiz
