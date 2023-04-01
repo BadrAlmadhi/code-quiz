@@ -41,4 +41,4 @@ JavaScript
 
 ## Live Link
 
-https://github.com/BadrAlmadhi/code-quiz
+https://badralmadhi.github.io/code-quiz/
